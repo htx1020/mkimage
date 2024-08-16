@@ -15,10 +15,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag runtime_ub20:v1
     - name: Store image
       uses: actions/upload-artifact@v2
       # 在 with 中定义的选项将传递给上传操作
       with:
         name: docker-image
-        path: runtime_ub20:$(date +%s)
+        path: runtime_ub20:v1
