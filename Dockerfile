@@ -33,7 +33,7 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 RUN new_apt.sh
-RUN download.sh
+RUN download_bin.sh
 
 WORKDIR /root/openSource/
 RUN git clone https://github.com/microsoft/vcpkg.git && cd vcpkg &&./bootstrap-vcpkg.sh && cd -

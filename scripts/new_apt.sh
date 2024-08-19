@@ -37,17 +37,17 @@ SW_LIST=(
     litecli
 )
 
-FLAG_USER apt update
+$FLAG_USER apt update
 # 记录开始时间
 START_TIME=$(date +%s)
 # 安装常用软件
 for sw in ${SW_LIST[@]}; do
     log_info "Installing $sw"
-    FLAG_USER apt install $sw -y >>/dev/null 2>&1
+    $FLAG_USER apt install $sw -y >>/dev/null 2>&1
 done
 # 清理临时文件
-FLAG_USER apt autoclean
-FLAG_USER apt autoremove
+$FLAG_USER apt autoclean
+$FLAG_USER apt autoremove
 # 计算安装时间
 END_TIME=$(date +%s)
 
