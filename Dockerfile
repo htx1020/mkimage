@@ -30,4 +30,4 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean
 
 WORKDIR /root/openSource/
-RUN git clone https://github.com/microsoft/vcpkg.git && cd vcpkg &&./bootstrap-vcpkg.sh && cd..
+RUN git clone https://github.com/microsoft/vcpkg.git && cd vcpkg &&./bootstrap-vcpkg.sh && cd -
