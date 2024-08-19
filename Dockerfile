@@ -24,7 +24,6 @@ RUN apt-get update && apt-get install -y \
     tree \
     lsof \
     htop \
-    litecli \
     build-essential \
     && apt-get clean
 
