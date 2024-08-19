@@ -1,4 +1,6 @@
 FROM ubuntu:20.04
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 
+RUN echo "Asia/Shanghai" | tee /etc/timezone
 RUN apt-get update && apt-get install -y \
     openssh-server \
     ca-certificates \
