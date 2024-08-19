@@ -1,6 +1,9 @@
 FROM ubuntu:20.04
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime 
 RUN echo "Asia/Shanghai" | tee /etc/timezone
+
+COPY ./scripts/* /usr/local/bin/
+
 RUN apt-get update && apt-get install -y \
     openssh-server \
     ca-certificates \
@@ -28,6 +31,9 @@ RUN apt-get update && apt-get install -y \
     htop \
     build-essential \
     && apt-get clean
+
+RUN new_apt.sh
+RUN download.sh
 
 WORKDIR /root/openSource/
 RUN git clone https://github.com/microsoft/vcpkg.git && cd vcpkg &&./bootstrap-vcpkg.sh && cd -
